@@ -8,9 +8,9 @@
 				<div><label for="keywords">Keywords <input
 					class="form-control cityField" type="text" name="keywords"
 					placeholder="keywords" required ng-model="keywords" /></label></div>
-				<div><button class="btn btn-primary btn-lg keyword" type="button" name="button"
+				<div><input class="btn btn-primary btn-lg keyword" type="submit" name="button"
 					ng-disabled="keywordForm.$invalid"
-					ng-click="$ctrl.keywordSearch(keywords)">Submit</button></div>
+					ng-click="$ctrl.keywordSearch(keywords)"></input></div>
 			</div>
 		</form>
 	</div>
