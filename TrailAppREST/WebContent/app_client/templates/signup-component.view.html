@@ -3,33 +3,36 @@
 		<form name="regForm" class="form" novalidate>
 			<h2 class="signUp">Sign Up</h2>
 
-			<input type="email" name="email" class="form-control"
-				placeholder="email" required ng-model="user.email" /> <input
-				type="password" name="password" class="form-control"
-				placeholder="password" required ng-model="user.password"
-				ng-minlength="6" /> <input type="firstName" name="firstName"
-				class="form-control" placeholder="first name" required
-				ng-model="user.firstName" /> <input type="lastName" name="lastName"
-				class="form-control" placeholder="last name" required
-				ng-model="user.lastName" />
+			<input type="email" name="email" class="form-control" placeholder="email" 
+				required ng-model="user.email" />
+			<input type="firstName" name="firstName" class="form-control" placeholder="first name"
+				required ng-model="user.firstName" />
+			<input type="lastName" name="lastName" class="form-control" placeholder="last name"
+				required ng-model="user.lastName" />
+			<input type="password" name="password" class="form-control" placeholder="password"
+				required ng-model="user.password" ng-minlength="6" /> 
+			<input type="password" name="password2" class="form-control" placeholder="confirm password"
+				required ng-model="temp.password" ng-minlength="6" /> 
 
-			<button class="btn btn-primary btn-lg" ng-disabled="regForm.$invalid"
+			<button class="btn btn-primary btn-lg" ng-disabled="regForm.$invalid || (user.password !== temp.password)"
 				ng-click="$ctrl.signup(user)">Sign Up</button>
 
 		<ul class="list-unstyled">
 			<li class="loginError" ng-show="$ctrl.error"><span class="loginError">{{$ctrl.error}}</span>
 			</li>
-			<li class="loginError" ng-show="regForm.$dirty && regForm.email.$invalid">Email
+			<li class="loginError" ng-show="regForm.email.$dirty && regForm.email.$invalid">Email
 				must be valid</li>
 			<li class="loginError" ng-show="regForm.$error.email.required">Email is required</li>
-			<li class="loginError" ng-show="regForm.$dirty && regForm.password.$invalid">
-				Password must be at least 6 characters</li>
-			<li class="loginError" ng-show="regForm.password.value === 0">Password is required</li>
 			<li class="loginError" ng-show="regForm.$error.firstName.required">First name is
 				required</li>
 			</li>
 			<li class="loginError" ng-show="regForm.$error.lastName.required">Last name is
 				required</li>
+			<li class="loginError" ng-show="regForm.password.$dirty && regForm.password.$invalid">
+				Password must be at least 6 characters</li>
+			<li class="loginError" ng-show="regForm.password.value === 0">Password is required</li>			
+			<li class="loginError" ng-show="regForm.password.$dirty
+				&& (user.password !== temp.password)">Confirm Password must match Password</li>
 		</ul>
 		</form>
 	</div>
