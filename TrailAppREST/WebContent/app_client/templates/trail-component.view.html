@@ -43,6 +43,10 @@
                           ng-click="$ctrl.removeUserFavorite($ctrl.user.id, $ctrl.trail.id)">Remove Favorite
                   </button>
                 </li>
+                <li class="ignoreGiantMargin">
+                  <a ng-href="https://www.google.com/maps/place/{{$ctrl.trail.latitude}}+{{$ctrl.trail.longitude}}" target="_blank">
+                  <input class="btn btn-primary btn-lg" type="button" value="Directions"/></a>
+                </li>
               </ul>
             </div>
           </div>
