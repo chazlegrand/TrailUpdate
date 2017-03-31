@@ -25,6 +25,7 @@
     <bean id="reportDAO" class="data.ReportDaoJpaImpl" />
     <bean id="authDAO" class="data.AuthDAOImpl" />
     <bean id="searchDAO" class="data.SearchDAOImpl" />
+    <bean id="AdminDAO" class="data.AdminDAOImpl" />
  
 
     <!-- bcrypt bean -->
