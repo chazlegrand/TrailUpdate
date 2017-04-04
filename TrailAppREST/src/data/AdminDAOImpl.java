@@ -1,5 +1,7 @@
 package data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -66,6 +68,18 @@ public class AdminDAOImpl implements AdminDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<Report> indexReports() {
+		String query = "SELECT r FROM Report r";
+		return em.createQuery(query, Report.class).getResultList();
+	}
+
+	@Override
+	public List<Trail> indexTrails() {
+		String query = "SELECT t FROM Trail t";
+		return em.createQuery(query, Trail.class).getResultList();
 	}
 
 }
