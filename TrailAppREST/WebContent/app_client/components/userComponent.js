@@ -13,6 +13,13 @@ var userController = function(userModel) {
     }
   };
 
+  ctrl.redirectAdmin = function() {
+    if(ctrl.user.id === -1) {
+      window.location = '#/admin';
+    }
+  };
+  ctrl.redirectAdmin();
+
   ctrl.loadUserFavs();
 };
 

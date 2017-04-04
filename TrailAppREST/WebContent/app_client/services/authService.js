@@ -71,12 +71,19 @@ app.factory('authService', function($window, $http){
       if (isLoggedIn()) {
         var token = getToken();
         var payload = JSON.parse($window.atob(token.split('.')[1]));
-
         return {
           name : payload.email,
           id : payload.user_id,
         };
       }
+    };
+
+    var isAdmin = function() {
+    	if(currentUser().id === -1) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     };
 
     return {
@@ -85,6 +92,7 @@ app.factory('authService', function($window, $http){
       logout : logout,
       isLoggedIn : isLoggedIn,
       currentUser : currentUser,
-      getToken : getToken
+      getToken : getToken,
+      isAdmin : isAdmin
     };
 });

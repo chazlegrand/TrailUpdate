@@ -88,6 +88,24 @@ module.config(function($routeProvider){
         }
       }
     })
+    .when('/admin', {
+    	template: `
+    	<admin-component user="$resolve.user">loading admin-component...</admin-component>
+    	`,
+    	resolve: {
+	        user : function(userModel, $route, $location) {
+	          var id = $route.current.params.id;
+	
+	          return userModel.getUser(id)
+	            .then(function(resp) {
+	              return resp.data;
+	            })
+	            .catch(function(err) {
+	              $location.path('error');
+	            });
+	        }
+    	}
+    })
     .otherwise({
       redirectTo : '/'
     });
