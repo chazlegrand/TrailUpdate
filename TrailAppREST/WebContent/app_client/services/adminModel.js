@@ -17,5 +17,12 @@ app.factory('adminModel', function($http){
     });
   };
 
+  service.deleteReport = function(id) {
+    return $http({
+      method : 'DELETE',
+      url : 'api/admin/reports/'+id
+    });
+  };
+
   return service;
 });

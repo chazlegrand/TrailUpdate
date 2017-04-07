@@ -1,0 +1,29 @@
+<div class="admin">
+
+  <h2>Admin Page</h2>
+  <div class="adminTrailsDiv adminDiv">
+    <h3>Trails:</h3>
+    <ul>
+      <li ng-repeat="trail in $ctrl.trails | orderBy:'name'">
+        <h4>
+          {{trail.name}}
+          <input type="button" class="btn btn-danger" value="Edit"/>
+        </h4>
+      </li>
+    </ul>
+  </div>
+
+  <div class="adminReportsDiv adminDiv">
+    <h3>Reports:</h3>
+    <ul>
+      <li ng-repeat="report in $ctrl.reports | orderBy:'timestamp'">
+        <h4>
+          {{report.timestamp}} {{report.heading}}
+          <input type="button" class="btn btn-danger" value="View"/>
+          <input type="button" class="btn btn-danger" value="Delete" ng-click="$ctrl.deleteReport(report.id)"/>
+        </h4>
+      </li>
+    </ul>
+  </div>
+
+</div>

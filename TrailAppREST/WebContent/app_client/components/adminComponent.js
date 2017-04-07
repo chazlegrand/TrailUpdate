@@ -28,18 +28,15 @@ var adminController = function(authService, adminModel) {
     });
   };
   ctrl.loadReports();
+
+  ctrl.deleteReport = function(id) {
+    console.log("deleting report with id: " + id);
+    adminModel.deleteReport(id);
+  };
 };
 
 module.component('adminComponent', {
-  template : `
-    <div class="admin">
-      <h3>Admin Page</h3>
-      <ul>
-        <li ng-repeat="trail in $ctrl.trails | orderBy:'name'">
-        <h4>{{trail.name}}</h4>
-    </div>
-  `,
-
+  templateUrl : 'app_client/templates/admin.view.html',
   controller : adminController,
 
   bindings : {
